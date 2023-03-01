@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Operator } from "./Operator";
+import { calculate } from "./calculate";
 
 type Op = "plus" | "minus" | "multiply" | "divide" | "none";
 
@@ -7,25 +8,6 @@ const num1 = 1 + Math.floor(Math.random() * 9);
 const num2 = 1 + Math.floor(Math.random() * 9);
 const num3 = 1 + Math.floor(Math.random() * 9);
 const num4 = 1 + Math.floor(Math.random() * 9);
-
-const calculate = (nums: Array<number>, opes: Array<Op>) => {
-  let result = nums[0];
-  for (let i = 0; i < 3; i++) {
-    let [op, num] = [opes[i], nums[i + 1]];
-    if (op === "plus") {
-      result += num;
-    } else if (op === "minus") {
-      result -= num;
-    } else if (op === "multiply") {
-      result *= num;
-    } else if (op === "divide") {
-      result /= num;
-    } else {
-      return 0;
-    }
-  }
-  return result;
-};
 
 export const InputArea = () => {
   const [op1, setOp1] = useState("none" as Op);
